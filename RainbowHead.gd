@@ -3,7 +3,7 @@ extends CharacterBody2D
 const RAINBOW_DOT = preload("res://Rainbow.tscn")
 const RAINBOW_BODY = preload("res://RainbowBody.tscn")
 const KILL_VERTICAL_THRESHOLD = 700
-const KILL_HORIZONTAL_THRESHOLD = 1000
+const KILL_HORIZONTAL_THRESHOLD = 2000
 var player
 var rainbow_body
 var vx
@@ -36,6 +36,8 @@ func _physics_process(delta):
 	if global_position.y > player.rainbow_start_position.y + KILL_VERTICAL_THRESHOLD or \
 		abs(global_position.x - player.rainbow_start_position.x) > KILL_HORIZONTAL_THRESHOLD:
 			die()
+	if Input.is_action_pressed("ui_cancel"):
+		die()
 	move_and_slide()
 
 
