@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://66i8kml5bn4w"]
+[gd_scene load_steps=7 format=3 uid="uid://66i8kml5bn4w"]
 
 [ext_resource type="PackedScene" uid="uid://b2n6qi5pgadhw" path="res://map/map.tscn" id="1_1d12w"]
 [ext_resource type="Script" path="res://Level.gd" id="1_2861b"]
 [ext_resource type="PackedScene" uid="uid://byfsqbih3pp8d" path="res://Raudino.tscn" id="2_61csq"]
 [ext_resource type="PackedScene" uid="uid://qqsk0wp7nd8" path="res://background/background.tscn" id="3_ur0d8"]
+[ext_resource type="AudioStream" uid="uid://41hcjm38vau2" path="res://assets/Ludum Dare 38 - 01.ogg" id="5_2g2xb"]
+[ext_resource type="FontFile" uid="uid://8lgpn4x7xuna" path="res://assets/m3x6.ttf" id="6_t7ltu"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_2861b")
@@ -15,5 +17,107 @@ position = Vector2(11905, 2929)
 scale = Vector2(0.10643, 0.10643)
 
 [node name="Background" parent="." instance=ExtResource("3_ur0d8")]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2g2xb")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11988.0
+offset_top = 2857.0
+offset_right = 12182.0
+offset_bottom = 2915.0
+theme_override_fonts/font = ExtResource("6_t7ltu")
+theme_override_font_sizes/font_size = 32
+text = "Long-press left mouse
+button to shoot rainbow!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 11543.0
+offset_top = 2828.0
+offset_right = 11791.0
+offset_bottom = 2886.0
+theme_override_fonts/font = ExtResource("6_t7ltu")
+theme_override_font_sizes/font_size = 32
+text = "Rubik's cube increases your
+ rainbowness"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 11216.0
+offset_top = 2741.0
+offset_right = 11464.0
+offset_bottom = 2799.0
+theme_override_fonts/font = ExtResource("6_t7ltu")
+theme_override_font_sizes/font_size = 32
+text = "Play with the mirror :)"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 10365.0
+offset_top = 3114.0
+offset_right = 10631.0
+offset_bottom = 3201.0
+theme_override_fonts/font = ExtResource("6_t7ltu")
+theme_override_font_sizes/font_size = 32
+text = "Rats eat away your rainbowness
+When you shoot rat with rainbow,
+you gain rainbowness"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 10733.0
+offset_top = 2816.0
+offset_right = 10999.0
+offset_bottom = 2903.0
+theme_override_fonts/font = ExtResource("6_t7ltu")
+theme_override_font_sizes/font_size = 32
+text = "Use mouse wheel and arrow keys
+to adjust camera"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 10280.0
+offset_top = 3591.0
+offset_right = 10546.0
+offset_bottom = 3678.0
+theme_override_fonts/font = ExtResource("6_t7ltu")
+theme_override_font_sizes/font_size = 32
+text = "Rainbowness affects the max
+strength of your rainbow"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="."]
+offset_left = 9588.0
+offset_top = 4038.0
+offset_right = 9854.0
+offset_bottom = 4125.0
+theme_override_fonts/font = ExtResource("6_t7ltu")
+theme_override_font_sizes/font_size = 32
+text = "When the rainbowness is too low,
+raudino will be defeated :("
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="."]
+offset_left = 8598.0
+offset_top = 5026.0
+offset_right = 8864.0
+offset_bottom = 5113.0
+theme_override_fonts/font = ExtResource("6_t7ltu")
+theme_override_font_sizes/font_size = 32
+text = "Hope you enjoy our game and
+try to reach the highest cloud!"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="."]
+offset_left = 9394.0
+offset_top = 4633.0
+offset_right = 9660.0
+offset_bottom = 4720.0
+theme_override_fonts/font = ExtResource("6_t7ltu")
+theme_override_font_sizes/font_size = 32
+text = "Press 'q' to cancel a rainbow"
+horizontal_alignment = 1
 
 [connection signal="tree_exited" from="Raudino" to="." method="_on_raudino_tree_exited"]
