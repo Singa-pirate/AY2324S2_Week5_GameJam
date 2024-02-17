@@ -65,7 +65,7 @@ shape = SubResource("RectangleShape2D_oydn1")
 [node name="Strength" type="ProgressBar" parent="."]
 offset_left = -258.0
 offset_top = 152.0
-offset_right = -58.0
+offset_right = -158.0
 offset_bottom = 172.0
 rotation = -1.57089
 scale = Vector2(2.15657, 2.15657)

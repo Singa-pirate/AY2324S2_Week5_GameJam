@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://4lpbc1uc634y" path="res://assets/rainbow.png" id="1_nj7re"]
 
 [node name="Rainbow" type="Node2D"]
-scale = Vector2(0.196197, 0.196197)
+scale = Vector2(0.302582, 0.302582)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.236904, 0.236904)

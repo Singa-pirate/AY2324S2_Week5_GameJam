@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://qqsk0wp7nd8" path="res://background/background.tscn" id="3_ur0d8"]
 
 [node name="Level" type="Node2D"]
+scale = Vector2(1.00014, 1.00014)
 
 [node name="Map" parent="." instance=ExtResource("1_1d12w")]
 
 [node name="Raudino" parent="." instance=ExtResource("2_61csq")]
 position = Vector2(10681, 2935)
-scale = Vector2(0.10643, 0.10643)
+scale = Vector2(0.10728, 0.107687)
 
 [node name="Background" parent="." instance=ExtResource("3_ur0d8")]
