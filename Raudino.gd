@@ -98,6 +98,9 @@ func update_position(position):
 func add_rainbowness(value: int):
 	strength_bar.size.x += value * 20
 	rainbow_speed += value * 40
+	if rainbow_speed < 200:
+		queue_free()
+		return
 	if value < 0:
 		play_hit_animation()
 
