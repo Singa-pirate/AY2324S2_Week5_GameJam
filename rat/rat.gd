@@ -5,6 +5,7 @@ extends CharacterBody2D
 var direction: Vector2
 
 const DAMAGE = 1
+const REWARD = 2
 
 
 func _ready():
@@ -32,3 +33,8 @@ func _on_direction_timer_timeout():
 func reverse_direction():
 	direction = -direction
 	$AnimatedSprite2D.scale.x = -$AnimatedSprite2D.scale.x
+
+
+func _on_hurtbox_body_entered(body):
+	body.add_rainbowness(REWARD)
+	queue_free()

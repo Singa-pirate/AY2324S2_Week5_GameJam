@@ -10,7 +10,7 @@ const RAINBOW_SHOOT_UPPER_BOUND = 100
 var rainbow_head
 @onready var strength_bar: ProgressBar = $Strength
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var rainbow_speed = 200
+var rainbow_speed = 400
 var jump_enabled = true
 var rainbow_start_position
 var rainbow_strength = 0
@@ -75,8 +75,8 @@ func update_position(position):
 
 
 func add_rainbowness(value: int):
-	strength_bar.size.x += value * 10
-	rainbow_speed += value * 20
+	strength_bar.size.x += value * 20
+	rainbow_speed += value * 40
 	if value < 0:
 		play_hit_animation()
 
