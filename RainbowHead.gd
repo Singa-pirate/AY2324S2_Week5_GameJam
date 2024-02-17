@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const RAINBOW_DOT = preload("res://Rainbow.tscn")
 const RAINBOW_BODY = preload("res://RainbowBody.tscn")
-const KILL_VERTICAL_SPEED_THRESHOLD = 400
+const KILL_VERTICAL_SPEED_THRESHOLD = 700
 var player
 var rainbow_body
 var vx

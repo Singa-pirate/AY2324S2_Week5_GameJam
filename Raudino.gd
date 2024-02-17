@@ -7,13 +7,13 @@ const HEIGHT_FROM_CENTER_TO_HORN = 29
 const RAINBOW_SHOOT_LOWER_BOUND = 20
 const RAINBOW_SHOOT_UPPER_BOUND = 100
 const CAMERA_MOVE_SPEED = 50
-const CAMERA_MAX_DISPLACEMENT = 200
+const CAMERA_MAX_DISPLACEMENT = 300
 @onready var arrow: Node2D = $Arrow
 var rainbow_head
 @onready var strength_bar: ProgressBar = $Strength
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var camera: Camera2D = $Camera2D
-var rainbow_speed = 400
+var rainbow_speed = 500
 var jump_enabled = true
 var rainbow_start_position
 var rainbow_strength = 0
