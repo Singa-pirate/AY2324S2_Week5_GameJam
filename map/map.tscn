@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2n6qi5pgadhw"]
+[gd_scene load_steps=7 format=3 uid="uid://b2n6qi5pgadhw"]
 
 [ext_resource type="Texture2D" uid="uid://cjq55u7b5jx3f" path="res://assets/Clouds V2.png" id="1_5rkyd"]
 [ext_resource type="PackedScene" uid="uid://2i5hgpoumwh6" path="res://map/mirror.tscn" id="2_jh3ux"]
 [ext_resource type="PackedScene" uid="uid://dv7hus8csbv82" path="res://collectibles/rubik.tscn" id="3_xhpb8"]
+[ext_resource type="PackedScene" uid="uid://h8maai3g73sg" path="res://rat/rat.tscn" id="4_7s45y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iwdq"]
 texture = ExtResource("1_5rkyd")
@@ -546,6 +547,14 @@ position = Vector2(2797, 627)
 rotation = 0.789994
 scale = Vector2(0.62985, 0.62985)
 
+[node name="Mirror15" parent="." instance=ExtResource("2_jh3ux")]
+position = Vector2(4689, 5400)
+scale = Vector2(0.661106, 0.661106)
+
+[node name="Mirror16" parent="." instance=ExtResource("2_jh3ux")]
+position = Vector2(9471, 5337)
+scale = Vector2(0.513135, 0.513135)
+
 [node name="Rubik" parent="." instance=ExtResource("3_xhpb8")]
 position = Vector2(11638, 2927)
 
@@ -572,3 +581,115 @@ position = Vector2(2940, 369)
 
 [node name="Rubik9" parent="." instance=ExtResource("3_xhpb8")]
 position = Vector2(1404, 1057)
+
+[node name="Rat" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(41, 221)
+rotation = 0.156304
+speed = 500
+duration = 0.8
+
+[node name="Rat2" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(196, 801)
+rotation = -0.0981527
+speed = 500
+duration = 0.8
+
+[node name="Rat3" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(154, 462)
+speed = 400
+duration = 1.0
+
+[node name="Rat4" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(444, 968)
+speed = 400
+duration = 1.0
+
+[node name="Rat5" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(806, 1082)
+speed = 380
+duration = 1.1
+
+[node name="Rat6" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(1236, 1100)
+speed = 350
+duration = 1.2
+
+[node name="Rat7" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(2110, 1100)
+speed = 350
+duration = 0.8
+
+[node name="Rat8" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(3809, 1092)
+speed = 300
+duration = 1.5
+
+[node name="Rat9" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(4248, 1418)
+speed = 300
+duration = 1.5
+
+[node name="Rat10" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(3057, 1837)
+speed = 300
+duration = 1.5
+
+[node name="Rat11" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(1960, 2030)
+rotation = 0.647082
+speed = 300
+duration = 1.5
+
+[node name="Rat12" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(1044, 2527)
+rotation = 0.713276
+speed = 300
+duration = 1.5
+
+[node name="Rat13" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(1179, 2957)
+speed = 250
+duration = 1.7
+
+[node name="Rat14" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(1496, 3436)
+speed = 250
+duration = 0.9
+
+[node name="Rat15" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(2764, 3721)
+speed = 250
+duration = 1.7
+
+[node name="Rat16" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(4451, 5357)
+speed = 200
+
+[node name="Rat17" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(5535, 5243)
+speed = 200
+duration = 1.2
+
+[node name="Rat18" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(6773, 5237)
+speed = 150
+duration = 5.0
+
+[node name="Rat19" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(6001, 4790)
+speed = 200
+
+[node name="Rat20" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(8366, 5238)
+speed = 150
+duration = 1.5
+
+[node name="Rat21" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(10381, 2960)
+rotation = -0.438423
+duration = 3.0
+
+[node name="Rat22" parent="." instance=ExtResource("4_7s45y")]
+position = Vector2(9608, 3212)
+rotation = 0.349739
+duration = 5.0
