@@ -47,9 +47,13 @@ func spawn_rainbow():
 	rainbow_body.add_child(rainbow)
 
 func _on_area_2d_body_entered(body):
-	if body.get_collision_layer_value() == 8:
-		pass # reflect
-	elif body.get_collision_layer_value() == 4:
-		rainbow_body.queue_free()
-		# teleport player to this 
-		queue_free()
+	if is_instance_of(body, TileMap):
+		if body.get_tileset().get_physics_layer_collision_layer(0) == 4:
+			# touch cloud platform
+			rainbow_body.queue_free()
+			# teleport player to this 
+			queue_free()
+	else:
+		if body.get_collision_layer_value() == 8:
+			pass # reflect
+
