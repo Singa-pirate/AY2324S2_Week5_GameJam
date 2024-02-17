@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://w058qb1jmiue"]
+[gd_scene load_steps=8 format=3 uid="uid://w058qb1jmiue"]
 
 [ext_resource type="Texture2D" uid="uid://dwp1f2wag1v3c" path="res://assets/raudino.png" id="1_1qnlu"]
 [ext_resource type="Script" path="res://Raudino.gd" id="1_2duys"]
 [ext_resource type="Texture2D" uid="uid://dilnkg8av0g3m" path="res://assets/raudino_down.png" id="2_och0v"]
+[ext_resource type="PackedScene" uid="uid://b4ejqva7owgs1" path="res://Arrow.tscn" id="4_x8vj8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ftetu"]
 animations = [{
@@ -48,3 +49,16 @@ shape = SubResource("RectangleShape2D_oydn1")
 position = Vector2(1157, 639)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
+
+[node name="Strength" type="ProgressBar" parent="."]
+offset_left = -258.0
+offset_top = 152.0
+offset_right = -118.0
+offset_bottom = 172.0
+rotation = -1.57089
+scale = Vector2(2.15657, 2.15657)
+show_percentage = false
+
+[node name="Arrow" parent="." instance=ExtResource("4_x8vj8")]
+visible = false
+position = Vector2(-9, -273)
