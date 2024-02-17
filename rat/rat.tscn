@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://h8maai3g73sg"]
+
+[ext_resource type="Texture2D" uid="uid://dec76j0a7e3vt" path="res://assets/rat/rat-1.png" id="1_pn4l6"]
+[ext_resource type="Script" path="res://rat/rat.gd" id="1_ri20v"]
+[ext_resource type="Texture2D" uid="uid://kkhuanxtcq2u" path="res://assets/rat/rat-2.png" id="2_bg0ea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epork"]
+size = Vector2(33, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hy0b5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pn4l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bg0ea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yivj"]
+size = Vector2(44, 24)
+
+[node name="Rat" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_ri20v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10.5, -3)
+shape = SubResource("RectangleShape2D_epork")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(0.139423, 0.139423)
+sprite_frames = SubResource("SpriteFrames_hy0b5")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(11, -3)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_4yivj")
+
+[node name="DirectionTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
