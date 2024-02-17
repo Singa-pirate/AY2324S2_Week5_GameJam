@@ -6,11 +6,14 @@ const WIDTH_FROM_CENTER_TO_HORN = 1
 const HEIGHT_FROM_CENTER_TO_HORN = 29
 const RAINBOW_SHOOT_LOWER_BOUND = 20
 const RAINBOW_SHOOT_UPPER_BOUND = 100
+const CAMERA_MOVE_SPEED = 50
+const CAMERA_MAX_DISPLACEMENT = 200
 @onready var arrow: Node2D = $Arrow
 var rainbow_head
 @onready var strength_bar: ProgressBar = $Strength
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var rainbow_speed = 200
+@onready var camera: Camera2D = $Camera2D
+var rainbow_speed = 400
 var jump_enabled = true
 var rainbow_start_position
 var rainbow_strength = 0
@@ -20,6 +23,20 @@ func _ready():
 	strength_bar.max_value = RAINBOW_SHOOT_UPPER_BOUND
 
 func _physics_process(delta):
+	
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") \
+		or Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down"):
+			if Input.is_action_pressed("ui_left") and camera.global_position.x > global_position.x - CAMERA_MAX_DISPLACEMENT:
+					camera.position.x -= CAMERA_MOVE_SPEED
+			elif Input.is_action_pressed("ui_right") and camera.global_position.x < global_position.x + CAMERA_MAX_DISPLACEMENT:
+					camera.position.x += CAMERA_MOVE_SPEED
+			elif Input.is_action_pressed("ui_up") and camera.global_position.y > global_position.y - CAMERA_MAX_DISPLACEMENT:
+					camera.position.y -= CAMERA_MOVE_SPEED
+			elif Input.is_action_pressed("ui_down") and camera.global_position.y < global_position.y + CAMERA_MAX_DISPLACEMENT:
+					camera.position.y += CAMERA_MOVE_SPEED
+	else:
+		camera.global_position = lerp(camera.global_position, global_position, 0.1)
+	
 	if is_on_floor() and jump_enabled:
 		update_rainbow_start_position()
 		arrow.rotation = calculate_arrow_angle()

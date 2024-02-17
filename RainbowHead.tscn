@@ -18,6 +18,7 @@ script = ExtResource("1_fr8h4")
 shape = SubResource("CircleShape2D_mlmmv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_gwgi3")
 
 [node name="Area2D" type="Area2D" parent="."]

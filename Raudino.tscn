@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://byfsqbih3pp8d"]
 
-[ext_resource type="Texture2D" uid="uid://cedp7wttsdnog" path="res://assets/raudino.png" id="1_1qnlu"]
+[ext_resource type="Texture2D" uid="uid://dwp1f2wag1v3c" path="res://assets/raudino.png" id="1_1qnlu"]
 [ext_resource type="Script" path="res://Raudino.gd" id="1_2duys"]
 [ext_resource type="Texture2D" uid="uid://dilnkg8av0g3m" path="res://assets/raudino_down.png" id="2_och0v"]
-[ext_resource type="PackedScene" path="res://Arrow.tscn" id="4_x8vj8"]
+[ext_resource type="PackedScene" uid="uid://b4ejqva7owgs1" path="res://Arrow.tscn" id="4_x8vj8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ftetu"]
 animations = [{
@@ -47,9 +47,8 @@ position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ftetu")
-autoplay = "default"
-frame_progress = 0.920026
 animation = &"hit"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-14, -27.5)
