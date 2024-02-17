@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://qqsk0wp7nd8"]
+
+[ext_resource type="Texture2D" uid="uid://52lvgti5m664" path="res://assets/background.jpg" id="1_snwl4"]
+
+[node name="Background" type="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, -422)
+scale = Vector2(3.85668, 3.85668)
+texture = ExtResource("1_snwl4")
+centered = false

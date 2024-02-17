@@ -6,20 +6,17 @@ const WIDTH_FROM_CENTER_TO_HORN = 1
 const HEIGHT_FROM_CENTER_TO_HORN = 29
 const RAINBOW_SHOOT_LOWER_BOUND = 20
 const RAINBOW_SHOOT_UPPER_BOUND = 100
-var arrow
+@onready var arrow: Node2D = $Arrow
 var rainbow_head
-var strength_bar
+@onready var strength_bar: ProgressBar = $Strength
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var rainbowness = 0
-var rainbow_speed = 300
+var rainbow_speed = 200
 var jump_enabled = true
 var rainbow_start_position
 var rainbow_strength = 0
 
 
 func _ready():
-	arrow = get_node("Arrow")
-	strength_bar = get_node("Strength")
 	strength_bar.max_value = RAINBOW_SHOOT_UPPER_BOUND
 
 func _physics_process(delta):
@@ -65,6 +62,7 @@ func shoot_rainbow():
 		rainbow_head.vx = dx
 		rainbow_head.vy = dy
 		rainbow_head.speed = rainbow_speed * rainbow_strength / RAINBOW_SHOOT_UPPER_BOUND
+		rainbow_head.rainbow_increased.connect(add_rainbowness)
 		get_parent().add_child(rainbow_head)
 		rainbow_strength = 0
 
@@ -75,5 +73,18 @@ func update_position(position):
 		get_node("AnimatedSprite2D").flip_h = false
 	global_position = position
 
-func increase_rainbowness(value):
-	rainbowness += value
+
+func add_rainbowness(value: int):
+	strength_bar.size.x += value * 10
+	rainbow_speed += value * 20
+	if value < 0:
+		play_hit_animation()
+
+
+func play_hit_animation():
+	$AnimatedSprite2D.play("hit")
+	$HitTimer.start()
+
+
+func _on_hit_timer_timeout():
+	$AnimatedSprite2D.play("default")

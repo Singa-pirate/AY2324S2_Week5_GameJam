@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://w058qb1jmiue"]
+[gd_scene load_steps=8 format=3 uid="uid://byfsqbih3pp8d"]
 
-[ext_resource type="Texture2D" uid="uid://dwp1f2wag1v3c" path="res://assets/raudino.png" id="1_1qnlu"]
+[ext_resource type="Texture2D" uid="uid://cedp7wttsdnog" path="res://assets/raudino.png" id="1_1qnlu"]
 [ext_resource type="Script" path="res://Raudino.gd" id="1_2duys"]
 [ext_resource type="Texture2D" uid="uid://dilnkg8av0g3m" path="res://assets/raudino_down.png" id="2_och0v"]
-[ext_resource type="PackedScene" uid="uid://b4ejqva7owgs1" path="res://Arrow.tscn" id="4_x8vj8"]
+[ext_resource type="PackedScene" path="res://Arrow.tscn" id="4_x8vj8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ftetu"]
 animations = [{
@@ -17,6 +17,17 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1qnlu")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n3e8"]
@@ -29,10 +40,16 @@ size = Vector2(243.5, 471)
 collision_mask = 5
 script = ExtResource("1_2duys")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-382, 0)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ftetu")
 autoplay = "default"
 frame_progress = 0.920026
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-14, -27.5)
@@ -46,15 +63,10 @@ collision_mask = 2
 position = Vector2(-19.75, -32.5)
 shape = SubResource("RectangleShape2D_oydn1")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1157, 639)
-zoom = Vector2(1.5, 1.5)
-position_smoothing_enabled = true
-
 [node name="Strength" type="ProgressBar" parent="."]
 offset_left = -258.0
 offset_top = 152.0
-offset_right = -118.0
+offset_right = -158.0
 offset_bottom = 172.0
 rotation = -1.57089
 scale = Vector2(2.15657, 2.15657)
@@ -63,3 +75,8 @@ show_percentage = false
 [node name="Arrow" parent="." instance=ExtResource("4_x8vj8")]
 visible = false
 position = Vector2(-9, -273)
+
+[node name="HitTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

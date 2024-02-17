@@ -11,6 +11,7 @@ var speed
 var angle
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+signal rainbow_increased
 
 func _ready():
 	rainbow_body = RAINBOW_BODY.instantiate()
@@ -68,4 +69,8 @@ func _on_area_2d_body_entered(body):
 			var curr_speed = velocity.length()
 			velocity.x = curr_speed * cos(reflected_angle)
 			velocity.y = curr_speed * sin(reflected_angle)
+
+
+func add_rainbowness(amount):
+	rainbow_increased.emit(amount)
 

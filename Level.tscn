@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://fitkigcuvoap"]
+[gd_scene load_steps=4 format=3 uid="uid://66i8kml5bn4w"]
 
 [ext_resource type="PackedScene" uid="uid://b2n6qi5pgadhw" path="res://map/map.tscn" id="1_1d12w"]
-[ext_resource type="PackedScene" uid="uid://w058qb1jmiue" path="res://Raudino.tscn" id="2_61csq"]
+[ext_resource type="PackedScene" uid="uid://byfsqbih3pp8d" path="res://Raudino.tscn" id="2_61csq"]
+[ext_resource type="PackedScene" uid="uid://qqsk0wp7nd8" path="res://background/background.tscn" id="3_ur0d8"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_1d12w")]
 
 [node name="Raudino" parent="." instance=ExtResource("2_61csq")]
-position = Vector2(11900, 2918)
+position = Vector2(1596, 1078)
 scale = Vector2(0.10643, 0.10643)
+
+[node name="Background" parent="." instance=ExtResource("3_ur0d8")]
