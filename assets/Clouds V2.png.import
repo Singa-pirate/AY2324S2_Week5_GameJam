@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwp1f2wag1v3c"
-path="res://.godot/imported/raudino.png-169e1fd4c12c1f0670b12f5bac6dca3b.ctex"
+uid="uid://cjq55u7b5jx3f"
+path="res://.godot/imported/Clouds V2.png-d0db5f56185b7ce12ef3e2945de6ea81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/raudino.png"
-dest_files=["res://.godot/imported/raudino.png-169e1fd4c12c1f0670b12f5bac6dca3b.ctex"]
+source_file="res://assets/Clouds V2.png"
+dest_files=["res://.godot/imported/Clouds V2.png-d0db5f56185b7ce12ef3e2945de6ea81.ctex"]
 
 [params]
 

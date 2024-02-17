@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwp1f2wag1v3c"
-path="res://.godot/imported/raudino.png-169e1fd4c12c1f0670b12f5bac6dca3b.ctex"
+uid="uid://cur2uhn7oncdi"
+path="res://.godot/imported/Mirror.png-c80251338cd21dba57dd59b0042b1c8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/raudino.png"
-dest_files=["res://.godot/imported/raudino.png-169e1fd4c12c1f0670b12f5bac6dca3b.ctex"]
+source_file="res://assets/Mirror.png"
+dest_files=["res://.godot/imported/Mirror.png-c80251338cd21dba57dd59b0042b1c8b.ctex"]
 
 [params]
 
