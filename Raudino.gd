@@ -65,6 +65,7 @@ func shoot_rainbow():
 		rainbow_head.vx = dx
 		rainbow_head.vy = dy
 		rainbow_head.speed = rainbow_speed * rainbow_strength / RAINBOW_SHOOT_UPPER_BOUND
+		rainbow_head.rainbow_increased.connect(add_rainbowness)
 		get_parent().add_child(rainbow_head)
 		rainbow_strength = 0
 		

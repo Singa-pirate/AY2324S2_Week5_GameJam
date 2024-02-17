@@ -8,7 +8,7 @@ func _on_body_entered(body):
 	if is_used:
 		return
 	is_used = true
-	body.increase_rainbowness(RAINBOWNESS)
+	body.add_rainbowness(RAINBOWNESS)
 	$DisappearTimer.start()
 
 
