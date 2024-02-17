@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 const RAINBOW_DOT = preload("res://Rainbow.tscn")
 const RAINBOW_BODY = preload("res://RainbowBody.tscn")
+var player
 var rainbow_body
-var vx = 100
-var vy = -100
-var speed = 300
+var vx
+var vy
+var speed
 var angle
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -38,7 +39,7 @@ func calculate_angle(x, y):
 		x = 1
 	if abs(y) < 1:
 		y = 1
-	return atan(y/x)
+	return atan2(y, x)
 
 func spawn_rainbow():
 	var rainbow = RAINBOW_DOT.instantiate()
@@ -51,9 +52,10 @@ func _on_area_2d_body_entered(body):
 		if body.get_tileset().get_physics_layer_collision_layer(0) == 4:
 			# touch cloud platform
 			rainbow_body.queue_free()
-			# teleport player to this 
+			player.global_position = global_position
+			player.jump_enabled = true
 			queue_free()
 	else:
-		if body.get_collision_layer_value() == 8:
+		if body.collision_layer == 8:
 			pass # reflect
 

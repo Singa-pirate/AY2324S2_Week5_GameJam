@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ot6kq"]
 
 [node name="RainbowHead" type="CharacterBody2D"]
+scale = Vector2(0.185708, 0.185708)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_fr8h4")
