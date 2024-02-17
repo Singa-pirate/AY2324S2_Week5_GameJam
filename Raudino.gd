@@ -27,6 +27,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") \
 		or Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down"):
+			camera.zoom = lerp(camera.zoom, Vector2(1.2, 1.2), 0.05)
 			if Input.is_action_pressed("ui_left") and camera.global_position.x > global_position.x - CAMERA_MAX_DISPLACEMENT:
 					camera.position.x -= CAMERA_MOVE_SPEED
 			elif Input.is_action_pressed("ui_right") and camera.global_position.x < global_position.x + CAMERA_MAX_DISPLACEMENT:
@@ -37,6 +38,7 @@ func _physics_process(delta):
 					camera.position.y += CAMERA_MOVE_SPEED
 	else:
 		camera.global_position = lerp(camera.global_position, global_position, 0.1)
+		camera.zoom = lerp(camera.zoom, Vector2(2, 2), 0.05)
 	
 	if is_on_floor() and jump_enabled:
 		update_rainbow_start_position()

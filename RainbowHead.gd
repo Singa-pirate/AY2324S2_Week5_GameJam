@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 const RAINBOW_DOT = preload("res://Rainbow.tscn")
 const RAINBOW_BODY = preload("res://RainbowBody.tscn")
-const KILL_VERTICAL_SPEED_THRESHOLD = 700
+const KILL_VERTICAL_THRESHOLD = 700
+const KILL_HORIZONTAL_THRESHOLD = 1000
 var player
 var rainbow_body
 var vx
@@ -32,8 +33,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	if velocity.y > KILL_VERTICAL_SPEED_THRESHOLD:
-		die()
+	if global_position.y > player.rainbow_start_position.y + KILL_VERTICAL_THRESHOLD or \
+		abs(global_position.x - player.rainbow_start_position.x) > KILL_HORIZONTAL_THRESHOLD:
+			die()
 	move_and_slide()
 
 
