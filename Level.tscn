@@ -9,7 +9,7 @@
 [node name="Map" parent="." instance=ExtResource("1_1d12w")]
 
 [node name="Raudino" parent="." instance=ExtResource("2_61csq")]
-position = Vector2(10717, 2928)
+position = Vector2(10681, 2935)
 scale = Vector2(0.10643, 0.10643)
 
 [node name="Background" parent="." instance=ExtResource("3_ur0d8")]

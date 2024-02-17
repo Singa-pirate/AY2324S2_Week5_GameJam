@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://h8maai3g73sg"]
+[gd_scene load_steps=8 format=3 uid="uid://h8maai3g73sg"]
 
 [ext_resource type="Texture2D" uid="uid://dec76j0a7e3vt" path="res://assets/rat/rat-1.png" id="1_pn4l6"]
 [ext_resource type="Script" path="res://rat/rat.gd" id="1_ri20v"]
@@ -24,22 +24,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yivj"]
 size = Vector2(44, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7dxn"]
+size = Vector2(50, 28)
+
 [node name="Rat" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_ri20v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10.5, -3)
 shape = SubResource("RectangleShape2D_epork")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, 1)
 scale = Vector2(0.139423, 0.139423)
 sprite_frames = SubResource("SpriteFrames_hy0b5")
+offset = Vector2(-90, 20)
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(11, -3)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
@@ -47,5 +48,13 @@ shape = SubResource("RectangleShape2D_4yivj")
 
 [node name="DirectionTimer" type="Timer" parent="."]
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_b7dxn")
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
