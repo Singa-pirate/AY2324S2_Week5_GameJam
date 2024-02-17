@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2n6qi5pgadhw"]
+[gd_scene load_steps=6 format=3 uid="uid://b2n6qi5pgadhw"]
 
 [ext_resource type="Texture2D" uid="uid://cjq55u7b5jx3f" path="res://assets/Clouds V2.png" id="1_5rkyd"]
 [ext_resource type="PackedScene" uid="uid://2i5hgpoumwh6" path="res://map/mirror.tscn" id="2_jh3ux"]
+[ext_resource type="PackedScene" uid="uid://dv7hus8csbv82" path="res://collectibles/rubik.tscn" id="3_xhpb8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iwdq"]
 texture = ExtResource("1_5rkyd")
@@ -535,3 +536,40 @@ scale = Vector2(0.663857, 0.663857)
 [node name="Mirror12" parent="." instance=ExtResource("2_jh3ux")]
 position = Vector2(10251, 2749)
 scale = Vector2(0.541183, 0.541183)
+
+[node name="Mirror13" parent="." instance=ExtResource("2_jh3ux")]
+position = Vector2(1362, 3575)
+rotation = 1.56953
+scale = Vector2(0.451946, 0.451946)
+
+[node name="Mirror14" parent="." instance=ExtResource("2_jh3ux")]
+position = Vector2(2797, 627)
+rotation = 0.789994
+scale = Vector2(0.62985, 0.62985)
+
+[node name="Rubik" parent="." instance=ExtResource("3_xhpb8")]
+position = Vector2(11638, 2927)
+
+[node name="Rubik2" parent="." instance=ExtResource("3_xhpb8")]
+position = Vector2(10241, 2720)
+
+[node name="Rubik3" parent="." instance=ExtResource("3_xhpb8")]
+position = Vector2(8530, 4892)
+
+[node name="Rubik4" parent="." instance=ExtResource("3_xhpb8")]
+position = Vector2(7922, 4023)
+
+[node name="Rubik5" parent="." instance=ExtResource("3_xhpb8")]
+position = Vector2(5468, 3976)
+
+[node name="Rubik6" parent="." instance=ExtResource("3_xhpb8")]
+position = Vector2(2936, 4875)
+
+[node name="Rubik7" parent="." instance=ExtResource("3_xhpb8")]
+position = Vector2(450, 3252)
+
+[node name="Rubik8" parent="." instance=ExtResource("3_xhpb8")]
+position = Vector2(2940, 369)
+
+[node name="Rubik9" parent="." instance=ExtResource("3_xhpb8")]
+position = Vector2(1404, 1057)
