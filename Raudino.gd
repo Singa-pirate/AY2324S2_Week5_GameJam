@@ -17,6 +17,7 @@ var rainbow_speed = 500
 var jump_enabled = true
 var rainbow_start_position
 var rainbow_strength = 0
+var last_position
 
 
 func _ready():
@@ -92,6 +93,7 @@ func update_position(position):
 		get_node("AnimatedSprite2D").flip_h = true
 	else:
 		get_node("AnimatedSprite2D").flip_h = false
+	last_position = global_position
 	global_position = position
 
 
@@ -124,4 +126,4 @@ func _on_hit_timer_timeout():
 
 
 func _on_fall_timer_timeout():
-	queue_free()
+	update_position(last_position)
