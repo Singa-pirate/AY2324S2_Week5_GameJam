@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var duration: float = 2.0
 var direction: Vector2
 
-const DAMAGE = 1
+const DAMAGE = 2
 const REWARD = 2
 
 

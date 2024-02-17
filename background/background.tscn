@@ -5,7 +5,7 @@
 [node name="Background" type="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-16, -422)
-scale = Vector2(3.85668, 3.85668)
+position = Vector2(8, -224)
+scale = Vector2(3.3797, 3.3797)
 texture = ExtResource("1_snwl4")
 centered = false

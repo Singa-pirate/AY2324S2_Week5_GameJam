@@ -11,9 +11,10 @@ const CAMERA_MAX_DISPLACEMENT = 300
 @onready var arrow: Node2D = $Arrow
 var rainbow_head
 @onready var strength_bar: ProgressBar = $Strength
+@onready var bar_fill: StyleBoxFlat
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var camera: Camera2D = $Camera2D
-var rainbow_speed = 500
+var rainbow_speed = 400
 var jump_enabled = true
 var rainbow_start_position
 var rainbow_strength = 0
@@ -23,12 +24,19 @@ var last_position
 func _ready():
 	strength_bar.max_value = RAINBOW_SHOOT_UPPER_BOUND
 	get_parent().set_initial_raudino(position, scale)
+	bar_fill = StyleBoxFlat.new()
+	strength_bar.add_theme_stylebox_override("fill", bar_fill)
 
 func _physics_process(delta):
 	
+	if Input.is_action_just_released("ui_mwu"):
+		camera.zoom = lerp(camera.zoom, Vector2(4, 4), 0.2)
+		camera.global_position = lerp(camera.global_position, global_position, 0.1)
+	elif Input.is_action_just_released("ui_mwd"):
+		camera.zoom = lerp(camera.zoom, Vector2(1, 1), 0.3)
+
 	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") \
 		or Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down"):
-			camera.zoom = lerp(camera.zoom, Vector2(1.2, 1.2), 0.05)
 			if Input.is_action_pressed("ui_left") and camera.global_position.x > global_position.x - CAMERA_MAX_DISPLACEMENT:
 					camera.position.x -= CAMERA_MOVE_SPEED
 			elif Input.is_action_pressed("ui_right") and camera.global_position.x < global_position.x + CAMERA_MAX_DISPLACEMENT:
@@ -37,9 +45,8 @@ func _physics_process(delta):
 					camera.position.y -= CAMERA_MOVE_SPEED
 			elif Input.is_action_pressed("ui_down") and camera.global_position.y < global_position.y + CAMERA_MAX_DISPLACEMENT:
 					camera.position.y += CAMERA_MOVE_SPEED
-	else:
-		camera.global_position = lerp(camera.global_position, global_position, 0.1)
-		camera.zoom = lerp(camera.zoom, Vector2(2, 2), 0.05)
+	#else:
+		#camera.global_position = lerp(camera.global_position, global_position, 0.1)
 	
 	if is_on_floor() and jump_enabled:
 		update_rainbow_start_position()
@@ -52,6 +59,10 @@ func _physics_process(delta):
 			shoot_rainbow()
 	
 	strength_bar.value = rainbow_strength
+	var strength_ratio = float(rainbow_strength) / RAINBOW_SHOOT_UPPER_BOUND
+	bar_fill.bg_color = Color(1, \
+		min(1, 2 - 2 * strength_ratio), \
+		max(0, 1 - 2 * strength_ratio))
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -85,7 +96,7 @@ func shoot_rainbow():
 		rainbow_head.global_position = arrow.global_position
 		rainbow_head.vx = dx
 		rainbow_head.vy = dy
-		rainbow_head.speed = rainbow_speed * rainbow_strength / RAINBOW_SHOOT_UPPER_BOUND
+		rainbow_head.init_speed = rainbow_speed * rainbow_strength / RAINBOW_SHOOT_UPPER_BOUND
 		rainbow_head.rainbow_increased.connect(add_rainbowness)
 		get_parent().add_child(rainbow_head)
 		rainbow_strength = 0
@@ -100,8 +111,8 @@ func update_position(position):
 
 
 func add_rainbowness(value: int):
-	strength_bar.size.x += value * 20
-	rainbow_speed += value * 40
+	strength_bar.size.x += value * 5
+	rainbow_speed += value * 10
 	if rainbow_speed < 200:
 		queue_free()
 		return

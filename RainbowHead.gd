@@ -2,13 +2,13 @@ extends CharacterBody2D
 
 const RAINBOW_DOT = preload("res://Rainbow.tscn")
 const RAINBOW_BODY = preload("res://RainbowBody.tscn")
-const KILL_VERTICAL_THRESHOLD = 700
-const KILL_HORIZONTAL_THRESHOLD = 2000
+const KILL_VERTICAL_SPEED_COEFFICIENT = 1.3
+const KILL_HORIZONTAL_SPEED_COEFFICIENT = 3
 var player
 var rainbow_body
 var vx
 var vy
-var speed
+var init_speed
 var angle
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -21,8 +21,8 @@ func _ready():
 	if abs(vy) < 1:
 		vy = -1
 	var norm_factor = 1 / sqrt(vx * vx + vy * vy)
-	velocity.x = vx * speed * norm_factor
-	velocity.y = vy * speed * norm_factor
+	velocity.x = vx * init_speed * norm_factor
+	velocity.y = vy * init_speed * norm_factor
 	
 
 func _physics_process(delta):
@@ -33,8 +33,8 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	if global_position.y > player.rainbow_start_position.y + KILL_VERTICAL_THRESHOLD or \
-		abs(global_position.x - player.rainbow_start_position.x) > KILL_HORIZONTAL_THRESHOLD:
+	if global_position.y > player.rainbow_start_position.y + player.rainbow_speed * KILL_VERTICAL_SPEED_COEFFICIENT or \
+		abs(global_position.x - player.rainbow_start_position.x) > player.rainbow_speed * KILL_HORIZONTAL_SPEED_COEFFICIENT:
 			die()
 	if Input.is_action_pressed("ui_cancel"):
 		die()
