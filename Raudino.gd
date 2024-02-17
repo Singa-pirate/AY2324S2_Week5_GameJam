@@ -11,7 +11,7 @@ var rainbow_head
 var strength_bar
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var rainbowness = 0
-var rainbow_speed = 200
+var rainbow_speed = 300
 var jump_enabled = true
 var rainbow_start_position
 var rainbow_strength = 0
@@ -28,10 +28,10 @@ func _physics_process(delta):
 		arrow.rotation = calculate_arrow_angle()
 		arrow.show()
 		
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		rainbow_strength = min(rainbow_strength + 1, RAINBOW_SHOOT_UPPER_BOUND)
-	else:
-		shoot_rainbow()
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			rainbow_strength = min(rainbow_strength + 1, RAINBOW_SHOOT_UPPER_BOUND)
+		else:
+			shoot_rainbow()
 	
 	strength_bar.value = rainbow_strength
 	
@@ -67,7 +67,13 @@ func shoot_rainbow():
 		rainbow_head.speed = rainbow_speed * rainbow_strength / RAINBOW_SHOOT_UPPER_BOUND
 		get_parent().add_child(rainbow_head)
 		rainbow_strength = 0
-		
 
-func add_rainbowness(value):
+func update_position(position):
+	if global_position.x > position.x:
+		get_node("AnimatedSprite2D").flip_h = true
+	else:
+		get_node("AnimatedSprite2D").flip_h = false
+	global_position = position
+
+func increase_rainbowness(value):
 	rainbowness += value

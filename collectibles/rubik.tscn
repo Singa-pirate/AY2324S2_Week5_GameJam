@@ -601,7 +601,7 @@ animations = [{
 }]
 
 [node name="Rubik" type="Area2D"]
-collision_mask = 0
+collision_layer = 0
 script = ExtResource("1_k82k3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

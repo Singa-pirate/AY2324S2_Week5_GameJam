@@ -20,21 +20,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n3e8"]
-size = Vector2(208, 330)
+size = Vector2(208, 419)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oydn1"]
-size = Vector2(243.5, 353)
+size = Vector2(243.5, 471)
 
 [node name="Raudino" type="CharacterBody2D"]
-collision_mask = 4
+collision_mask = 5
 script = ExtResource("1_2duys")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ftetu")
-frame_progress = 0.3713
+autoplay = "default"
+frame_progress = 0.920026
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-14, 17)
+position = Vector2(-14, -27.5)
 shape = SubResource("RectangleShape2D_2n3e8")
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -42,7 +43,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-19.75, 18.5)
+position = Vector2(-19.75, -32.5)
 shape = SubResource("RectangleShape2D_oydn1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
