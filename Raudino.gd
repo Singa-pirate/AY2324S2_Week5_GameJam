@@ -21,6 +21,7 @@ var rainbow_strength = 0
 
 func _ready():
 	strength_bar.max_value = RAINBOW_SHOOT_UPPER_BOUND
+	get_parent().set_initial_raudino(position, scale)
 
 func _physics_process(delta):
 	
@@ -52,6 +53,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		attempt_start_fall_timer()
+	else:
+		attempt_stop_fall_timer()
 	
 	move_and_slide()
 
@@ -98,6 +102,15 @@ func add_rainbowness(value: int):
 		play_hit_animation()
 
 
+func attempt_start_fall_timer():
+	if $FallTimer.is_stopped():
+		$FallTimer.start()
+
+
+func attempt_stop_fall_timer():
+	$FallTimer.stop()
+
+
 func play_hit_animation():
 	$AnimatedSprite2D.play("hit")
 	$HitTimer.start()
@@ -105,3 +118,7 @@ func play_hit_animation():
 
 func _on_hit_timer_timeout():
 	$AnimatedSprite2D.play("default")
+
+
+func _on_fall_timer_timeout():
+	queue_free()

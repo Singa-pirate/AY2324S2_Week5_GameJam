@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://byfsqbih3pp8d"]
 
-[ext_resource type="Texture2D" uid="uid://dwp1f2wag1v3c" path="res://assets/raudino.png" id="1_1qnlu"]
+[ext_resource type="Texture2D" uid="uid://cedp7wttsdnog" path="res://assets/raudino.png" id="1_1qnlu"]
 [ext_resource type="Script" path="res://Raudino.gd" id="1_2duys"]
 [ext_resource type="Texture2D" uid="uid://dilnkg8av0g3m" path="res://assets/raudino_down.png" id="2_och0v"]
-[ext_resource type="PackedScene" uid="uid://b4ejqva7owgs1" path="res://Arrow.tscn" id="4_x8vj8"]
+[ext_resource type="PackedScene" path="res://Arrow.tscn" id="4_x8vj8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ftetu"]
 animations = [{
@@ -78,4 +78,7 @@ position = Vector2(-9, -273)
 [node name="HitTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="FallTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
