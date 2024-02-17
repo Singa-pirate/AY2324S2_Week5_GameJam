@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://fitkigcuvoap"]
+
+[ext_resource type="PackedScene" uid="uid://b2n6qi5pgadhw" path="res://map/map.tscn" id="1_1d12w"]
+[ext_resource type="PackedScene" uid="uid://w058qb1jmiue" path="res://Raudino.tscn" id="2_61csq"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_1d12w")]
+
+[node name="Raudino" parent="." instance=ExtResource("2_61csq")]
+position = Vector2(49, 23)
+scale = Vector2(0.10643, 0.10643)

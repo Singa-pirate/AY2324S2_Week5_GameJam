@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://w058qb1jmiue"]
 
-[ext_resource type="Texture2D" uid="uid://d12t742a5i5qt" path="res://assets/raudino.png" id="1_1qnlu"]
+[ext_resource type="Texture2D" uid="uid://dwp1f2wag1v3c" path="res://assets/raudino.png" id="1_1qnlu"]
 [ext_resource type="Script" path="res://Raudino.gd" id="1_2duys"]
 [ext_resource type="Texture2D" uid="uid://dilnkg8av0g3m" path="res://assets/raudino_down.png" id="2_och0v"]
 
@@ -25,6 +25,7 @@ size = Vector2(208, 330)
 size = Vector2(243.5, 353)
 
 [node name="Raudino" type="CharacterBody2D"]
+collision_mask = 4
 script = ExtResource("1_2duys")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -42,3 +43,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-19.75, 18.5)
 shape = SubResource("RectangleShape2D_oydn1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1157, 639)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true

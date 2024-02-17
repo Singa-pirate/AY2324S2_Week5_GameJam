@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://fitkigcuvoap"]
-
-[ext_resource type="PackedScene" uid="uid://de6rvyreiritq" path="res://RainbowHead.tscn" id="1_t7pux"]
-
-[node name="Test" type="Node2D"]
-
-[node name="RainbowHead" parent="." instance=ExtResource("1_t7pux")]
