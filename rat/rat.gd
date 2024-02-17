@@ -22,6 +22,7 @@ func _physics_process(delta):
 func _on_hitbox_body_entered(body):
 	# hit the player
 	body.add_rainbowness(-DAMAGE)
+	queue_free()
 
 
 func _on_direction_timer_timeout():
